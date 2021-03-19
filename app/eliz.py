@@ -91,10 +91,11 @@ def wget(url = None):
 
 def run():
     from sys import argv
-    print(argv)
     if len(argv) > 1:
         if argv[1] == "-h":
             help()
+        elif argv[1] != "-u" and "-u2" and "-r" and "-w":
+            print(f"[e]--> error, enter valid argument !, this not found --> {argv[1]}")
         elif argv[2]:
             if argv[1] == "-u":
                 timer(urllib, argv[2])
