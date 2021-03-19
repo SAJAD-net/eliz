@@ -1,10 +1,13 @@
 
-def timer(fun, url):
+def timer(fun, url = None):
     from time import time
     st = time()
     try:
-        fun(url)
-    except:
+        if url:
+            fun(url)
+        else:
+            fun()
+    except Exception as e:
         print("[e]--> error, check url and connection !")
     et = time() - st
     print("[!]--> Total time : %1.2f s"%et)
@@ -47,13 +50,16 @@ def urllib(url = None):
         url = checkurl(url)
     else:
         url = checkurl()
-    name = findname(url)
+    name = finename(url)
     print("[!]--> download started with urllib !")
     urlretrieve(url, name)
     
 def urllib2(url = None):
-
-    from urllib2 import urlopen
+    try:
+        from urllib2 import urlopen
+    except:
+        print("[e]--> error, urllib is not installed !")
+        exit()
     if url:
         url = checkurl(url)
     else:
@@ -64,29 +70,38 @@ def urllib2(url = None):
     filew = filer.read()
     with open(name, "wb") as filen:
         filen.write(filew)
+    filen.close()
 
 def requests(url = None):
-    from requests import get
+    try:
+        from requests import get
+    except:
+        print("[e]--> error, requests is not installed !")
+        exit()
+    if url:
+        url = checkurl(url)
+    else:
+        url = checkurl()
+    name = finename(url) 
+    header = {"user-agent" : "eliz", "referer" : "google.com"}
     print("[!]--> download started with requests !")
+    res = get(url, headers = header)
+    print(f"status : {res.status_code}")
+    with open(name, "wb") as filen:
+        filen.write(res.content)
+    filen.close()
+def wget(url = None):
+    try:
+        from wget import download 
+    except:
+        print("[e]--> error, wget is not installed !")
+        exit()
     if url:
         url = checkurl(url)
     else:
         url = checkurl()
     name = finename(url)
-    header = {"user-agent" : "eliz", "referer" : "google.com"}
-    res = get(url, headers = header)
-    print(f"status : {res.status_code}")
-    with open(name, "wb") as filen:
-        filen.write(res.content)
-
-def wget(url = None):
-    from wget import download 
     print("[!]--> download started with wget !")
-    if url:
-        url = checkurl(url)
-    else:
-        url = checkurl()
-    name = findname(url)
     download(url, name)
 
 def run():
