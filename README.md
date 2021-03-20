@@ -3,7 +3,7 @@
 ## This tool is for download file from url
 
 ## property: 
-	# This tool can use of following library for download
+	# This tool can use of following librarys for download
 	1- urllib
 	2- urllib 2
 	3- requests
