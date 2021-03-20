@@ -1,6 +1,6 @@
 # eliz
 
-## This tool is for download file from url
+## This tool is for download files from url
 
 ## property: 
 	# This tool can use of following librarys for download
