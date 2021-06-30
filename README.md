@@ -1,4 +1,4 @@
-# eliz
+# sython
 
 ## This tool has four different ways to download files from the url
 
@@ -9,6 +9,6 @@
 	3- requests
 	4- wget
 ## how to run:
-	python3 eliz.py OR python3 eliz.py [args] [url]
+	python3 sython.py OR python3 sython.py [args] [url]
 
-my email : sajadsajad.sch@gmail.com
+## my email : sajadsajad.sch@gmail.com
