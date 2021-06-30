@@ -14,10 +14,10 @@ def timer(fun, url = None):
     print("[!]--> Finished !")
 
 def help():
-    print("""[!]--> `*` eliz help `*`
+    print("""[!]--> `*` sython help `*`
         
         how:
-            python3 eliz.py [args] [url] OR python3 eliz.py
+            python3 sython.py [args] [url] OR python3 sython.py
 
         args:
                 -u  --> dow.. with urllib
@@ -83,7 +83,7 @@ def requests(url = None):
     else:
         url = checkurl()
     name = finename(url) 
-    header = {"user-agent" : "eliz", "referer" : "google.com"}
+    header = {"user-agent" : "sython", "referer" : "google.com"}
     print("[!]--> download started with requests !")
     res = get(url, headers = header)
     print(f"status : {res.status_code}")
@@ -126,7 +126,7 @@ def run():
         else:
             print("[e]--> error, enter url !")
     else:
-        print("[!]--> `*` welcome to eliz `*`")
+        print("[!]--> `*` welcome to sython `*`")
         fits = ["urllib", "urllib2", "requests", "wget", "help", "exit"]
         count = 1
         for fit in fits:
