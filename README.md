@@ -1,6 +1,6 @@
 # sython
 
-## This tool has four different ways to download files from the url
+## This tool can use four different libraries to download files from the URL
 
 ## property: 
 	# This tool can use of following librarys for download
